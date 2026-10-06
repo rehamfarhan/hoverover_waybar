@@ -1,0 +1,94 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "mod": "dock",
+    "exclusive": false,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 40,
+	
+    "include": [
+        "~/.config/waybar/21_hoverover/modules.jsonc"
+    ],
+
+    "modules-left": [
+        "group/power-drawer",
+        "custom/notification",
+        "group/network-drawer",
+        "custom/uptime",
+        "custom/friday-update"
+    ],
+    "modules-center": [
+        "group/center"
+    ],
+    "modules-right": [
+        "custom/media",
+        "group/audio",
+        "tray",
+        "group/clock-hardware"
+    ],
+
+    // Group Power & Inhibit Suspend (Drawer on hover)
+    "group/power-drawer": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 400,
+            "children-class": "power-drawer-child",
+            "transition-left-to-right": true,
+            "click-to-reveal": false
+        },
+        "modules": [
+            "custom/power",
+            "custom/inhibit-suspend"
+        ]
+    },
+
+    // Group Network & Bluetooth (Bluetooth reveals on hover)
+    "group/network-drawer": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 400,
+            "children-class": "network-drawer-child",
+            "transition-left-to-right": true,
+            "click-to-reveal": false
+        },
+        "modules": [
+            "network",
+            "bluetooth"
+        ]
+    },
+
+    // Group Center
+    "group/center": {
+        "orientation": "horizontal",
+        "modules": [
+            "hyprland/workspaces",
+            "hyprland/window",
+            "custom/sleep"
+        ]
+    },
+
+    // Group Clock & Hardware (Clock expands to CPU & RAM on hover)
+    "group/clock-hardware": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 400,
+            "children-class": "clock-drawer-child",
+            "transition-left-to-right": false,
+            "click-to-reveal": false
+        },
+        "modules": [
+            "clock",
+            "cpu",
+            "memory"
+        ]
+    },
+
+    // Group Audio
+    "group/audio": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio"
+        ]
+    }
+}

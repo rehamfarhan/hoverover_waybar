@@ -1,0 +1,266 @@
+{
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 25,
+        "on-click": "hyprctl dispatch 'hl.dsp.exec_cmd(\"[workspace empty] foot\")' && hyprctl dispatch 'hl.dsp.focus({ workspace = \"empty\" })'",
+        "on-click-right": "hyprctl dispatch 'hl.dsp.window.close()'",
+        "on-click-middle": "hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"magic\")'",
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+        "rewrite": {
+            "": "Dusky",
+            "(.*) — Mozilla Firefox": " $1",
+            "(.*) - Visual Studio Code": "󰨞 $1",
+            "(.*) - Thunar": " $1",
+            "(.*) - Discord": " $1",
+            "(.*) - Spotify": " $1",
+            "(.*) - Kitty": " $1",
+            "(.*) - Ghostty": " $1"
+        },
+        "icon": false,
+        "separate-output": true
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{name}",
+        "format-icons": {
+            "active": " ",
+            "default": " ",
+            "empty": ""
+        },
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+        "window-rewrite": {
+            "title<.*youtube.*>": " ", 
+            "(.*) - Chromium": " ",
+            "(.*) - Firefox": " ",
+            "(.*) - Brave": " ",
+            "(.*) - Google": " ",
+            "(.*)VSCodium": "󰨞 ",
+            "class<Codium>": "󰨞 ",
+            "(.*) - Thunar": " ",
+            "class<discord>": " ",
+            "class<WhatsApp>": " ",
+            "class<org.telegram.desktop>": " ",
+            "class<slack>": " ",
+            "class<zoom>": "󰘔 ",
+            "class<signal>": "󰈎 ",
+            "class<obsidian>": "󱓧 ",
+            "WhatsApp": " ",
+            "Ghostty": " ",
+            "class<com.mitchellh.ghostty>": " ",
+            "class<spotify>": " ",
+            "class<notion>": " ",
+            "title<.*Gemini.*>": "󰭹 ",
+            "title<.*Grok.*>": "󱚣 ",
+            "title<.*ChatGPT.*>": "󰭹 ",
+            "title<.*Claude.*>": "󰭹 "
+        },
+        "persistent-workspaces": {}
+    },
+
+    "custom/notification": {
+        "format": "{}",
+        "return-type": "json",
+        "exec-if": "which makoctl",
+        "exec": "~/user_scripts/waybar/mako.sh",
+        "on-click": "~/user_scripts/rofi/rofi_mako.sh",
+        "on-click-right": "makoctl mode -t do-not-disturb && pkill -RTMIN+8 waybar",
+        "signal": 8,
+        "interval": 2,
+        "escape": true,
+        "tooltip-format": "Notifications\n\nLMB: Notification Panel\nRMB: Toggle Do Not Disturb"
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip-format": "Power Menu\n\nLMB: Wlogout\nRMB: Lock Screen",
+        "on-click": "dusky-run ~/user_scripts/wlogout/wlogout_scale.sh",
+        "on-click-right": "hyprlock"
+    },
+
+    "custom/inhibit-suspend": {
+        "format": "{}",
+        "exec": "if pgrep -x 'hypridle' > /dev/null; then echo '{\"text\": \"󰌾\", \"tooltip\": \"Auto-suspend ENABLED\\nClick to pause hypridle\", \"class\": \"enabled\"}'; else echo '{\"text\": \"󰅶\", \"tooltip\": \"Auto-suspend PAUSED\\nClick to enable hypridle\", \"class\": \"disabled\"}'; fi",
+        "return-type": "json",
+        "interval": 5,
+        "signal": 9,
+        "on-click": "dusky-run ~/user_scripts/waybar/toggle_hypridle.sh",
+        "escape": true
+    },
+
+    "custom/uptime": {
+        "exec": "python3 ~/.config/waybar/22_hoverover_dynamic_island/scripts/uptime.py",
+        "return-type": "json",
+        "interval": 60,
+        "on-click": "python3 ~/.config/waybar/22_hoverover_dynamic_island/scripts/uptime.py --toggle-timer",
+        "tooltip": true
+    },
+
+    "custom/friday-update": {
+        "exec": "python3 ~/.config/waybar/22_hoverover_dynamic_island/scripts/friday_update.py",
+        "return-type": "json",
+        "interval": 300,
+        "signal": 9,
+        "on-click": "python3 ~/.config/waybar/22_hoverover_dynamic_island/scripts/friday_update.py --run",
+        "tooltip": true
+    },
+
+    "cpu": {
+        "interval": 2,
+        "format": " {usage}%",
+        "on-click": "dusky-run kitty --class btop -e btop",
+        "on-click-right": "dusky-run kitty --class sysbench_benchmark.py -e $HOME/user_scripts/performance/sysbench_benchmark.py",
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-"
+    },
+
+    "memory": {
+        "interval": 2,
+        "format": " {percentage}%",
+        "format-alt": " {used:0.1f}G",
+        "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
+        "on-click": "dusky-run kitty --class btop -e btop",
+        "on-click-right": "dusky-run kitty --class dusky_disk_monitor_io.py -e $HOME/user_scripts/drives/dusky_disk_monitor_io.py",
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-"
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "󰥔 {:%I:%M %p}",
+        "format-alt": "󰃭 {:%A, %B %d, %Y (%R)}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months":   "<span color='#ffead3'><b>{}</b></span>",
+                "days":     "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":    "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today":    "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "on-click": "dusky-run gnome-clocks",
+        "on-click-middle": "dusky-run kitty --class peaclock -e peaclock",
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": true,
+        "format-muted": "",
+        "on-click": "dusky-run pavucontrol",
+        "on-click-right": "dusky-run kitty --class cava -e cava",
+        "on-click-middle": "systemctl --user restart pipewire pipewire-pulse wireplumber && notify-send -a 'OSD' 'Audio Reset' 'Restarted PipeWire & WirePlumber'",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+
+    "network": {
+        "format-wifi": "{essid} ",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰌙 Disconnected",
+        "format-disabled": "󰤭 Off",
+        "format-linked": "󰈀 No IP",
+        "tooltip-format": "IP: {ipaddr}/{cidr}\nGateway: {gwaddr}\nDown:  {bandwidthDownBytes}\nUp:  {bandwidthUpBytes}",
+        "on-click": "foot --app-id=dusky_tui python $HOME/user_scripts/dusky_tui/python/main/main.py $HOME/user_scripts/network_manager/tui_dusky_network.py",
+        "on-click-right": "nmcli radio wifi off && sleep 5 && nmcli radio wifi on && notify-send -a 'OSD' -i 'network-wireless' -h string:x-canonical-private-synchronous:'wifi-restart' 'WiFi' 'Restarted WiFi Connection'",
+        "on-click-middle": "nmcli radio wifi off && notify-send -a 'OSD' -i 'network-wireless' -h string:x-canonical-private-synchronous:'wifi' 'WiFi' 'Turned OFF'",
+        "interval": 1
+    },
+
+    "bluetooth": {
+        "format": "󰂯",
+        "format-on": "󰂯",
+        "format-off": "󰂲",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱 {num_connections}",
+        "format-connected-battery": "󰂱 {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\n{controller_address}\n\nLMB: Blueman\nRMB: Bluetui\nMMB: Toggle Power",
+        "tooltip-format-off": "Bluetooth OFF\n\nLMB: Blueman\nRMB: Bluetui\nMMB: Turn ON",
+        "tooltip-format-connected": "{controller_alias}\n{controller_address}\n\n{device_enumerate}\n\nLMB: Blueman\nRMB: Bluetui\nMMB: Toggle Power",
+        "tooltip-format-enumerate-connected": " {device_alias}",
+        "tooltip-format-enumerate-connected-battery": " {device_alias} ({device_battery_percentage}%)",
+        "on-click": "dusky-run blueman-manager",
+        "on-click-right": "dusky-run kitty --class bluetui -e bluetui",
+        "on-click-middle": "if bluetoothctl show | grep -q 'Powered: yes'; then bluetoothctl power off && notify-send -a 'OSD' -i 'bluetooth-disabled' -h string:x-canonical-private-synchronous:'bt-power' 'Bluetooth' 'Turned OFF'; else bluetoothctl power on && notify-send -a 'OSD' -i 'bluetooth' -h string:x-canonical-private-synchronous:'bt-power' 'Bluetooth' 'Turned ON'; fi",
+        "interval": 5
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8
+    },
+
+    "custom/sleep": {
+        "exec": "python3 ~/.config/waybar/22_hoverover_dynamic_island/scripts/sleep_warning.py",
+        "return-type": "json",
+        "interval": 60,
+        "tooltip": true,
+        "on-click": "notify-send -a 'Sleep Window' -i 'alarm-clock' 'Sleep Monitor' '$(python3 ~/.config/waybar/22_hoverover_dynamic_island/scripts/sleep_warning.py | jq -r .tooltip)'",
+        "on-click-middle": "makoctl mode -t do-not-disturb && pkill -RTMIN+8 waybar"
+    },
+
+    "custom/media": {
+        "format": "{}",
+        "return-type": "json",
+        "max-length": 55,
+        "exec": "python3 ~/.config/waybar/22_hoverover_dynamic_island/scripts/mediaplayer.py",
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "tooltip": true
+    },
+
+    "custom/exams": {
+        "exec": "python3 ~/.config/waybar/22_hoverover_dynamic_island/scripts/exams.py",
+        "return-type": "json",
+        "interval": 3600,
+        "tooltip": true
+    },
+
+    "custom/ramadan": {
+        "exec": "python3 ~/.config/waybar/22_hoverover_dynamic_island/scripts/ramadan.py",
+        "return-type": "json",
+        "interval": 60,
+        "tooltip": true,
+        "format": "{}", 
+        "on-click": "notify-send 'Ramadan Schedule' '$(python3 ~/.config/waybar/22_hoverover_dynamic_island/scripts/ramadan.py | jq -r .tooltip)'"
+    },
+
+    "custom/gamemode": {
+        "format": "󰓓 ",
+        "on-click": "sh ~/.config/waybar/22_hoverover_dynamic_island/scripts/gamemode.sh",
+        "tooltip": true,
+        "tooltip-format": "Toggle Gamemode (Performance)"
+    },
+
+    "custom/user": {
+        "exec": "sh ~/.config/waybar/22_hoverover_dynamic_island/scripts/user.sh",
+        "return-type": "json",
+        "interval": 1800,
+        "tooltip": true
+    }
+}
