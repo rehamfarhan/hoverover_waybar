@@ -6,10 +6,11 @@ A central repository of custom, highly interactive, and beautifully styled **Way
 
 ## 📂 Configurations Index
 
-| Configuration | Layout | Centerpiece | Highlights | Documentation |
+| Configuration | Layout | Orientation | Highlights | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **[`hoverover`](./hoverover)** | **Bottom Dock** | `Workspaces` + `Active Window` + `Sleep` | 60% Frosted glass dock with 3 expanding hover drawers, fluid lava-lamp multi-gradient wax animations, and precision stopwatch. | [**View Docs ➔**](./hoverover/README.md) |
-| **[`hoverover_dynamic_island`](./hoverover_dynamic_island)** | **Top Bar** | `Workspaces` (Dynamic Island) | Floating centered workspace island with tucked side modules that smoothly drop down on hover. | [**View Docs ➔**](./hoverover_dynamic_island/README.md) |
+| **[`hoverover`](./hoverover)** | **Bottom Dock** | Horizontal | 60% Frosted glass dock with 3 expanding hover drawers, fluid lava-lamp multi-gradient wax animations, and precision stopwatch. | [**View Docs ➔**](./hoverover/README.md) |
+| **[`hoverover_dynamic_island`](./hoverover_dynamic_island)** | **Top Bar** | Horizontal | Floating centered workspace island with tucked side modules that smoothly drop down on hover. | [**View Docs ➔**](./hoverover_dynamic_island/README.md) |
+| **[`bkcddots`](./bkcddots)** | **Right Dock** | Vertical (30px) | Ultra-compact vertical right dock with stacked clock, active app tracker, theme switcher, and grouped controls. | [**View Docs ➔**](./bkcddots/README.md) |
 
 ---
 
@@ -29,6 +30,9 @@ ln -s ~/waybarconf/hoverover ~/.config/waybar/21_hoverover
 
 # Dynamic Island (Top Bar) -> 22_hoverover_dynamic_island
 ln -s ~/waybarconf/hoverover_dynamic_island ~/.config/waybar/22_hoverover_dynamic_island
+
+# BKCCDots (Vertical Right Dock) -> 20_bkcddots
+ln -s ~/waybarconf/bkcddots ~/.config/waybar/20_bkcddots
 ```
 
 ### 3. Switch Live via Dusky CLI
@@ -38,6 +42,9 @@ python3 ~/user_scripts/waybar/tui_waybars.py --apply 21_hoverover
 
 # Switch to Dynamic Island:
 python3 ~/user_scripts/waybar/tui_waybars.py --apply 22_hoverover_dynamic_island
+
+# Switch to BKCCDots:
+python3 ~/user_scripts/waybar/tui_waybars.py --apply 20_bkcddots
 ```
 
 ---

@@ -1,0 +1,207 @@
+{
+    "layer": "top",
+    "position": "right",
+    "width": 30,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-right": 0,
+    "margin-left": 0,
+    "spacing": 0,
+    "fixed-center": true,
+    "reload_style_on_change": true,
+
+    "modules-left": [
+        "clock",
+        "custom/active-app"
+    ],
+
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+        "group/media",
+        "group/connections",
+        "custom/notification",
+        "custom/theme",
+        "tray",
+        "custom/power"
+    ],
+
+    "clock": {
+        "justify": "center",
+        "align": 0.5,
+        "format": "\n{:%I\n%M}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "interval": 60,
+        "on-click": "dusky-run gnome-clocks",
+        "on-click-middle": "dusky-run kitty --class peaclock -e peaclock",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "custom/active-app": {
+        "justify": "center",
+        "align": 0.5,
+        "exec": "bash -c '$HOME/.config/waybar/scripts/active-app.sh'",
+        "interval": 1,
+        "max-length": 6,
+        "tooltip": true
+    },
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "all-outputs": true,
+        "sort-by": "number",
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": 4
+        },
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'"
+    },
+
+    "group/media": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "media-drawer",
+            "click-to-reveal": false,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "pulseaudio",
+            "backlight"
+        ]
+    },
+
+    "pulseaudio": {
+        "justify": "center",
+        "align": 0.5,
+        "format": "{icon}",
+        "format-muted": "󰖁",
+        "format-icons": [
+            "󰕿",
+            "󰖀",
+            "󰕾"
+        ],
+        "tooltip-format": "Volume: {volume}%\nLMB: pavucontrol\nMMB: Mute",
+        "on-click": "dusky-run pavucontrol",
+        "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    },
+
+    "backlight": {
+        "justify": "center",
+        "align": 0.5,
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "Brightness: {percent}%",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    "group/connections": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "connections-drawer",
+            "click-to-reveal": false,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "network",
+            "bluetooth"
+        ]
+    },
+
+    "network": {
+        "justify": "center",
+        "align": 0.5,
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{ifname}: {ipaddr}\nSignal: {signalStrength}%",
+        "on-click": "nm-connection-editor",
+        "on-click-right": "kitty -e nmtui"
+    },
+
+    "bluetooth": {
+        "justify": "center",
+        "align": 0.5,
+        "format": "",
+        "format-disabled": "󰂲",
+        "format-connected": "",
+        "tooltip-format": "Bluetooth: {status}",
+        "on-click": "dusky-run blueman-manager",
+        "on-click-right": "dusky-run kitty --class bluetui -e bluetui"
+    },
+
+    "custom/notification": {
+        "justify": "center",
+        "align": 0.5,
+        "tooltip-format": "Notification Center\nLMB: Rofi Mako\nMMB: Clear\nRMB: DND",
+        "format": "󰍜",
+        "on-click": "~/user_scripts/rofi/rofi_mako.sh",
+        "on-click-middle": "~/user_scripts/waybar/mako.sh --clear && pkill -RTMIN+8 waybar",
+        "on-click-right": "makoctl mode -t do-not-disturb && pkill -RTMIN+8 waybar"
+    },
+
+    "custom/theme": {
+        "justify": "center",
+        "align": 0.5,
+        "format": "",
+        "tooltip-format": "LMB: Dark Mode\nRMB: Light Mode\nMMB: Wallpaper Selector",
+        "on-click": "dusky-run \"$HOME/user_scripts/theme_matugen/theme_ctl.sh\" set --mode dark",
+        "on-click-right": "dusky-run \"$HOME/user_scripts/theme_matugen/theme_ctl.sh\" set --mode light",
+        "on-click-middle": "dusky-run ~/user_scripts/images/wallpaper_selector.py"
+    },
+
+    "tray": {
+        "icon-size": 15,
+        "spacing": 2
+    },
+
+    "custom/power": {
+        "justify": "center",
+        "align": 0.5,
+        "format": "",
+        "tooltip-format": "Power Menu",
+        "on-click": "dusky-run \"$HOME/user_scripts/wlogout/wlogout_scale.sh\""
+    }
+}

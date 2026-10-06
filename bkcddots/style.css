@@ -1,0 +1,214 @@
+@import url("../../.config/matugen/generated/waybar-colors.css");
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   DYNAMIC MATUGEN GLASSY PALETTE
+   ───────────────────────────────────────────────────────────────────────────── */
+@define-color glass_bar         alpha(@background, 0.85);
+@define-color glass_group       alpha(@surface_container_highest, 0.70);
+@define-color glass_module      alpha(@surface_container_highest, 0.55);
+@define-color glass_tooltip     alpha(@surface_container, 0.90);
+@define-color glass_active_ws   @primary;
+@define-color glass_border      alpha(@outline_variant, 0.40);
+
+/* ===================================================================
+ * GLOBAL
+ * =================================================================== */
+* {
+    font-family: "JetBrainsMonoNL NF", sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    min-height: 0;
+    min-width: 0;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background: @glass_bar;
+    color: @on_surface;
+    border-left: 1px solid @glass_border;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    border-radius: 0;
+}
+
+tooltip {
+    background: @glass_tooltip;
+    color: @on_surface;
+    border: 1px solid @glass_border;
+    border-radius: 6px;
+}
+
+tooltip label {
+    padding: 4px;
+}
+
+/* ===================================================================
+ * MODULE BASE & DRAWERS
+ * =================================================================== */
+.modules-left > widget > *,
+.modules-center > widget > *,
+.modules-right > widget > * {
+    margin: 3px 0px;
+}
+
+/* Drawer / Group Containers */
+box#group-media,
+box#group-connections {
+    background-color: @glass_group;
+    border-radius: 8px;
+    padding: 4px 0px;
+    margin: 3px 2px;
+}
+
+/* Internal Module Spacing & Centering */
+#pulseaudio,
+#backlight,
+#network,
+#bluetooth,
+#custom-notification,
+#custom-theme,
+#tray,
+#custom-power {
+    padding: 4px 0px;
+    margin: 2px 0px;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+/* ===================================================================
+ * TOP SECTION
+ * =================================================================== */
+#clock {
+    background-color: @primary_container;
+    color: @on_primary_container;
+    border-radius: 8px;
+    font-size: 10px;
+    padding: 6px 0px;
+    margin: 4px 2px 2px 2px;
+}
+
+#custom-active-app {
+    color: @primary;
+    background-color: @glass_module;
+    border-radius: 8px;
+    font-size: 11px;
+    padding: 5px 0px;
+    margin: 2px 2px;
+}
+
+/* ===================================================================
+ * WORKSPACES
+ * =================================================================== */
+#workspaces {
+    background: @glass_group;
+    border-radius: 8px;
+    padding: 3px 0px;
+    margin: 2px 2px;
+}
+
+#workspaces button {
+    padding: 4px 0px;
+    margin: 2px 2px;
+    min-width: 22px;
+    border-radius: 6px;
+    color: @on_surface_variant;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.empty {
+    color: alpha(@on_surface, 0.35);
+}
+
+#workspaces button.active {
+    background: @primary;
+    color: @on_primary;
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+    background: alpha(@primary, 0.3);
+}
+
+/* ===================================================================
+ * BOTTOM SECTION MODULES
+ * =================================================================== */
+#pulseaudio {
+    color: @secondary;
+}
+
+#pulseaudio.muted {
+    color: @error;
+}
+
+#backlight {
+    color: @primary;
+}
+
+#network {
+    color: @primary;
+}
+
+#network.disconnected {
+    color: @error;
+}
+
+#bluetooth {
+    color: @secondary;
+}
+
+#custom-notification {
+    background-color: @glass_module;
+    color: @on_surface_variant;
+    border-radius: 8px;
+    margin: 2px 2px;
+    padding: 5px 0px;
+}
+
+#custom-theme {
+    background-color: @glass_module;
+    color: @secondary;
+    border-radius: 8px;
+    margin: 2px 2px;
+    padding: 5px 0px;
+}
+
+#tray {
+    margin: 2px 2px;
+    padding: 2px 0px;
+}
+
+#tray > widget,
+#tray > widget > button {
+    margin: 0;
+    padding: 0;
+}
+
+#custom-power {
+    background-color: alpha(@error, 0.15);
+    color: @error;
+    border-radius: 8px;
+    font-size: 13px;
+    margin: 3px 2px 4px 2px;
+    padding: 6px 0px;
+}
+
+#custom-power:hover {
+    background-color: alpha(@error, 0.35);
+}
+
+/* Hover States */
+#clock:hover,
+#custom-active-app:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#network:hover,
+#bluetooth:hover,
+#custom-notification:hover,
+#custom-theme:hover {
+    color: @primary;
+}
