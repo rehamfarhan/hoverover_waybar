@@ -17,7 +17,7 @@ Every capsule is engineered for fast, intuitive access to system tools:
 | **Notifications** | `󰂚` (Count) | Open **Rofi** notification history panel | Toggle **Mako** Do Not Disturb (DND) | — | — | Liquid Lava-Lamp Glow |
 | **Network Drawer** | `` (SSID) / `󰈀` (Ethernet) | Open **Dusky TUI Network Manager** in `foot` | Restart WiFi radio (off $\rightarrow$ on) + OSD toast | Turn WiFi radio **OFF** | — | Expands drawer to reveal `Bluetooth` |
 | **Bluetooth** | `󰂯` / `󰂱` (Count) | Open **Blueman Manager** (GUI) | Open **Bluetui** (Terminal TUI) | Toggle Bluetooth Controller Power + OSD toast | — | Child of Network Drawer |
-| **Uptime & Stopwatch** | `󰔛` / Time-of-Day Icon + Uptime | **Start / Stop Precision Stopwatch** (Displays elapsed time in 3.5s OSD toast) | — | — | — | Liquid Lava-Lamp Glow |
+| **Uptime & Stopwatch** | `󰔛` / Time-of-Day Icon + Uptime | **Start / Stop Precision Stopwatch** (Displays elapsed time in 3.5s OSD toast) | — | — | Adjust Display Brightness $\pm 5\%$ | Liquid Lava-Lamp Glow |
 | **Friday Update** | `󰏓` / `󰑐` (Pulse) | Run mirrorlist ranking + `paru` upgrade + Dusky updates in terminal | — | — | — | **Auto-shows ONLY on Fridays** until updated |
 | **Workspaces** | Number / Dynamic App Icon | Switch to clicked workspace | — | — | Cycle workspace (`e-1` / `e+1`) | Liquid Lava-Lamp Glow |
 | **Active Window** | App Icon + Truncated Title | **Silently spawn `foot` terminal** on empty workspace & jump | **Close active window** (`window.close`) | Toggle **Special Scratchpad** (`magic`) | Cycle workspace (`e-1` / `e+1`) | Liquid Lava-Lamp Glow |

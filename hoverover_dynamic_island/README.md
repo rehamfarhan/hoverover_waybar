@@ -22,7 +22,7 @@ Featuring a **Permanently Visible Centered Workspace Island**, **Tucked-Up Side 
 | **Notifications** | `󰂚` (Count) | Open **Rofi** notification history | Toggle **Mako** DND mode | — | — | Reveals with Lava-Lamp Glow |
 | **Network Drawer** | `` / `󰈀` | Open **Dusky TUI Network Manager** | Restart WiFi (off $\rightarrow$ on) + OSD toast | Turn WiFi **OFF** | — | Expands drawer to reveal `Bluetooth` |
 | **Bluetooth** | `󰂯` / `󰂱` | Open **Blueman Manager** (GUI) | Open **Bluetui** (Terminal TUI) | Toggle Bluetooth Power + OSD toast | — | Child of Network Drawer |
-| **Uptime & Stopwatch** | `󰔛` / Uptime | **Start / Stop Precision Stopwatch** (OSD duration toast) | — | — | — | Reveals with Lava-Lamp Glow |
+| **Uptime & Stopwatch** | `󰔛` / Uptime | **Start / Stop Precision Stopwatch** (OSD duration toast) | — | — | Adjust Display Brightness $\pm 5\%$ | Reveals with Lava-Lamp Glow |
 | **Friday Update** | `󰏓` / `󰑐` | Run mirrorlist ranking + `paru` + Dusky updates | — | — | — | **Auto-shows ONLY on Fridays** |
 | **Workspaces (Island)** | Numbers / Icons | Switch to clicked workspace | — | — | Cycle workspace (`e-1` / `e+1`) | Permanent Island; glows on hover |
 | **Active Window** | Title | Spawn `foot` on empty workspace & jump | Close window (`window.close`) | Toggle Scratchpad (`magic`) | Cycle workspace (`e-1` / `e+1`) | Reveals with Lava-Lamp Glow |

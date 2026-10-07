@@ -111,7 +111,8 @@ def get_uptime_info():
             f"Session TTY: {tty_str}\n"
             f"Time of Day: {tod_name}\n\n"
             f"Stopwatch: {timer_status}\n"
-            f"LMB: Start / Stop Precision Timer"
+            f"LMB: Start / Stop Precision Timer\n"
+            f"Scroll: Adjust Brightness (±5%)"
         )
 
         return json.dumps({

@@ -97,6 +97,8 @@
         "return-type": "json",
         "interval": 60,
         "on-click": "python3 ~/.config/waybar/21_hoverover/scripts/uptime.py --toggle-timer",
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
         "tooltip": true
     },
 
