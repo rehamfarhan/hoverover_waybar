@@ -210,7 +210,7 @@ window#waybar #workspaces button:hover label {
     background: @primary;
     color: @on_primary;
     padding: 0 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid alpha(@outline, 0.15);
     animation: splash-calm 0.6s ease-out;
 }
