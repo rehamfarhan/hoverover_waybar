@@ -67,19 +67,28 @@ window#waybar {
     padding: 0px 10px;
     margin: 3px 2px;
     border-radius: 15px;
-    color: @primary;
-    background-color: alpha(@surface_container_highest, 0.35);
+    color: @on_surface;
+    background-color: alpha(@surface_container_highest, 0.45);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#workspaces button.active,
-#workspaces button.active label {
+#workspaces button label {
+    background: transparent;
+    color: inherit;
+}
+
+#workspaces button.active {
     color: @on_primary;
     background: @primary;
     min-width: 55px;
     border-radius: 15px;
     animation: splash-calm 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     transition: none;
+}
+
+#workspaces button.active label {
+    background: transparent;
+    color: @on_primary;
 }
 
 /* =============================================================================
@@ -197,16 +206,18 @@ window#waybar #workspaces button:hover label {
 }
 
 /* Window Title Capsule */
-#window,
-#window label {
-    color: @on_primary;
-}
-
 #window {
     background: @primary;
+    color: @on_primary;
     padding: 0 20px;
-    border-radius: 10px;
+    border-radius: 20px;
+    border: 1px solid alpha(@outline, 0.15);
     animation: splash-calm 0.6s ease-out;
+}
+
+#window label {
+    background: transparent;
+    color: @on_primary;
 }
 
 /* =============================================================================
