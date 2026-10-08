@@ -1,30 +1,30 @@
-@import "../../.cache/wal/colors-waybar.css";
+@import url("../../.config/matugen/generated/waybar-colors.css");
 
 /* =============================================================================
-   UNIVERSAL STYLING (60% Frosted Glass Transparency & Clean Deceleration)
+   UNIVERSAL STYLING (60% Frosted Glass Transparency & Matugen Material You)
    ========================================================================== */
 * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font", "Fira Code", FontAwesome;
+    font-family: "JetBrainsMonoNL NF", sans-serif;
     font-weight: bold;
     font-size: 12px;
     min-height: 0;
-    color: @foreground;
+    color: @on_surface;
     /* REFINED RETURN TRANSITION: ZERO JITTER / ZERO SHRINK UNDERSHOOT */
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 window#waybar {
     background-color: transparent; 
-    color: @foreground;
+    color: @on_surface;
 }
 
 /* =============================================================================
    ANIMATION DEFINITIONS
    ========================================================================== */
 
-/* THE LAVA LAMP OOZE: Fluid multi-gradient animated wax */
+/* THE LAVA LAMP OOZE: Fluid multi-gradient animated wax using Matugen palette */
 @keyframes lava-ooze {
     0% { background-position: 0% 0%; }
     50% { background-position: 50% 100%; }
@@ -34,20 +34,20 @@ window#waybar {
 /* Splash calm active transition */
 @keyframes splash-calm {
     0% { 
-        background-color: @color2; 
+        background-color: @secondary; 
         letter-spacing: 2px; 
     }
     100% { 
-        background-color: @color7; 
+        background-color: @primary; 
         letter-spacing: 0px; 
     }
 }
 
 /* Friday Update Pulse */
 @keyframes friday-pulse {
-    0% { background-color: rgba(25, 25, 35, 0.4); }
-    50% { background-color: rgba(255, 180, 50, 0.3); }
-    100% { background-color: rgba(25, 25, 35, 0.4); }
+    0% { background-color: alpha(@surface_container, 0.4); }
+    50% { background-color: alpha(@tertiary, 0.35); }
+    100% { background-color: alpha(@surface_container, 0.4); }
 }
 
 /* =============================================================================
@@ -55,11 +55,11 @@ window#waybar {
    ========================================================================== */
 
 #workspaces {
-    background: rgba(25, 25, 35, 0.35);
+    background: alpha(@surface_container, 0.35);
     margin: 6px 4px;
     padding: 2px 4px;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid alpha(@outline, 0.15);
     opacity: 1;
 }
 
@@ -67,15 +67,15 @@ window#waybar {
     padding: 0px 10px;
     margin: 3px 2px;
     border-radius: 15px;
-    color: @color7;
-    background-color: rgba(255, 255, 255, 0.04);
+    color: @primary;
+    background-color: alpha(@surface_container_highest, 0.35);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #workspaces button.active,
 #workspaces button.active label {
-    color: #150f07;
-    background: @color7;
+    color: @on_primary;
+    background: @primary;
     min-width: 55px;
     border-radius: 15px;
     animation: splash-calm 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -114,20 +114,20 @@ window#waybar #workspaces button:hover {
 
     background: linear-gradient(
         180deg, 
-        @color1, @color2, @color3, @color5, @color7, @color2, @color1
+        @primary, @secondary, @tertiary, @primary_container, @primary_fixed, @secondary, @primary
     );
     
     background-size: 100% 400%;
     animation: lava-ooze 4s infinite linear; 
 
     padding: 2px 26px; 
-    color: #150f07; 
+    color: @on_primary; 
     
     /* Glowing liquid effect */
     box-shadow: 
         inset 0 0 20px rgba(255, 255, 255, 0.5),
-        inset 0 5px 15px @color1,
-        inset 0 -5px 15px @color3;
+        inset 0 5px 15px @primary,
+        inset 0 -5px 15px @tertiary;
 
     /* SNAPPY SPRING ARRIVAL */
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -153,7 +153,7 @@ window#waybar #custom-media:hover label,
 window#waybar #pulseaudio:hover label, 
 window#waybar #custom-gamemode:hover label,
 window#waybar #workspaces button:hover label {
-    color: #150f07;
+    color: @on_primary;
     transition: color 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -165,11 +165,11 @@ window#waybar #workspaces button:hover label {
 #clock, #network, #bluetooth, #custom-exams,
 #custom-sleep, #custom-ramadan, #cpu, #memory, 
 #custom-media, #pulseaudio, #custom-gamemode, #window {
-    background-color: rgba(25, 25, 35, 0.4);
-    color: @foreground;
+    background-color: alpha(@surface_container, 0.4);
+    color: @on_surface;
     padding: 0 15px;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid alpha(@outline, 0.15);
 
     /* Tucked up into top bezel: near-invisible until cursor hovers near top */
     opacity: 0.01;
@@ -186,24 +186,24 @@ window#waybar #workspaces button:hover label {
 #clock label, #network label, #bluetooth label, #custom-exams label,
 #custom-sleep label, #custom-ramadan label, #cpu label, #memory label, 
 #custom-media label, #pulseaudio label, #custom-gamemode label {
-    color: @foreground;
+    color: @on_surface;
     transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Friday Update Active State */
 #custom-friday-update.pending {
     animation: friday-pulse 3s infinite ease-in-out;
-    border: 1px solid rgba(255, 180, 50, 0.4);
+    border: 1px solid alpha(@tertiary, 0.4);
 }
 
 /* Window Title Capsule */
 #window,
 #window label {
-    color: #150f07;
+    color: @on_primary;
 }
 
 #window {
-    background: @color7;
+    background: @primary;
     padding: 0 20px;
     border-radius: 10px;
     animation: splash-calm 0.6s ease-out;
@@ -213,10 +213,10 @@ window#waybar #workspaces button:hover label {
    TRAY HITBOX ALIGNMENT & STYLING
    ========================================================================== */
 #tray {
-    background-color: rgba(25, 25, 35, 0.4);
+    background-color: alpha(@surface_container, 0.4);
     padding: 0 12px;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid alpha(@outline, 0.15);
     opacity: 0.01;
     margin-top: -10px;
     margin-bottom: 22px;
@@ -240,10 +240,10 @@ window#waybar #workspaces button:hover label {
 }
 
 #tray menu {
-    background: rgba(20, 20, 30, 0.95);
-    color: @foreground;
+    background: alpha(@surface_container_high, 0.95);
+    color: @on_surface;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid alpha(@outline, 0.2);
     padding: 6px;
 }
 
