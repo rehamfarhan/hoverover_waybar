@@ -2,7 +2,7 @@
     "hyprland/window": {
         "format": "{title}",
         "max-length": 25,
-        "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"empty\" })' && alacritty",
+        "on-click": "hyprctl dispatch 'hl.dsp.exec_cmd(\"[workspace empty] alacritty\")' && hyprctl dispatch 'hl.dsp.focus({ workspace = \"empty\" })'",
         "on-click-right": "hyprctl dispatch 'hl.dsp.window.close()'",
         "on-click-middle": "hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"magic\")'",
         "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
