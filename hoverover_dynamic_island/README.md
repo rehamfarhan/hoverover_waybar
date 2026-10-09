@@ -25,7 +25,7 @@ Featuring a **Permanently Visible Centered Workspace Island**, **Tucked-Up Side 
 | **Uptime & Stopwatch** | `󰔛` / Uptime | **Start / Stop Precision Stopwatch** (OSD duration toast) | — | — | Adjust Display Brightness $\pm 5\%$ | Reveals with Lava-Lamp Glow |
 | **Friday Update** | `󰏓` / `󰑐` | Run mirrorlist ranking + `paru` + Dusky updates | — | — | — | **Auto-shows ONLY on Fridays** |
 | **Workspaces (Island)** | Numbers / Icons | Switch to clicked workspace | — | — | Cycle workspace (`e-1` / `e+1`) | Permanent Island; glows on hover |
-| **Active Window** | Title | Spawn `foot` on empty workspace & jump | Close window (`window.close`) | Toggle Scratchpad (`magic`) | Cycle workspace (`e-1` / `e+1`) | Reveals with Lava-Lamp Glow |
+| **Active Window** | Title | Switch to empty workspace & launch `alacritty` | Close window (`window.close`) | Toggle Scratchpad (`magic`) | Cycle workspace (`e-1` / `e+1`) | Reveals with Lava-Lamp Glow |
 | **Sleep Monitor** | `󰒲` | Bedtime analysis OSD notification | — | Toggle DND | — | Reveals with Lava-Lamp Glow |
 | **Media Player** | Track Title | **Play / Pause** toggle | **Stop** playback | — | Next / Previous track (`playerctl`) | Auto-hides when idle |
 | **Audio Volume** | `` / Volume % | Open **Pavucontrol** mixer | Open **Cava** visualizer | **Restart Audio Server** (PipeWire) | Adjust volume $\pm 5\%$ (`pactl`) | Reveals with Lava-Lamp Glow |

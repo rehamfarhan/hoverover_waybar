@@ -20,7 +20,7 @@ Every capsule is engineered for fast, intuitive access to system tools:
 | **Uptime & Stopwatch** | `󰔛` / Time-of-Day Icon + Uptime | **Start / Stop Precision Stopwatch** (Displays elapsed time in 3.5s OSD toast) | — | — | Adjust Display Brightness $\pm 5\%$ | Liquid Lava-Lamp Glow |
 | **Friday Update** | `󰏓` / `󰑐` (Pulse) | Run mirrorlist ranking + `paru` upgrade + Dusky updates in terminal | — | — | — | **Auto-shows ONLY on Fridays** until updated |
 | **Workspaces** | Number / Dynamic App Icon | Switch to clicked workspace | — | — | Cycle workspace (`e-1` / `e+1`) | Liquid Lava-Lamp Glow |
-| **Active Window** | App Icon + Truncated Title | **Silently spawn `foot` terminal** on empty workspace & jump | **Close active window** (`window.close`) | Toggle **Special Scratchpad** (`magic`) | Cycle workspace (`e-1` / `e+1`) | Liquid Lava-Lamp Glow |
+| **Active Window** | App Icon + Truncated Title | **Switch to empty workspace & launch `alacritty`** | **Close active window** (`window.close`) | Toggle **Special Scratchpad** (`magic`) | Cycle workspace (`e-1` / `e+1`) | Liquid Lava-Lamp Glow |
 | **Sleep Monitor** | `󰒲` (Bedtime Status) | Send bedtime & circadian schedule analysis notification | — | Quick Toggle DND | — | Liquid Lava-Lamp Glow |
 | **Media Player** | Brand Icon + Track Title | **Play / Pause** toggle | **Stop** playback | — | Next / Previous track (`playerctl`) | Auto-hides when idle; shows on active playback |
 | **Audio Volume** | `` / Volume % | Open **Pavucontrol** volume mixer | Open **Cava** audio visualizer in terminal | **Restart Audio Server** (PipeWire + WirePlumber) | Adjust volume $\pm 5\%$ (`pactl`) | Liquid Lava-Lamp Glow |
